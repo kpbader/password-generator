@@ -41,6 +41,7 @@ if (length >= 8 && length <= 128) {
     // if user chooses all options...
     if (isLower === true && isUpper === true && isNumeric === true && isSpecial === true) {
        setPassword += randomLower + randomUpper + randomNumeric + randomSpecial;
+       var tempStr="";
         // append to the temp variable which will be our password for a random character
          // to the length of the password, with a random character from the setPassword variable 
        for (var index = 0; index < length; index++) {
