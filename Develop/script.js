@@ -17,11 +17,14 @@ function generatePassword() {
   // Enter number of characters 
  var length = window.prompt("What is the length of your password? It must be between 8 and 128 characters.");
 
- // If user enters too low or high of a number, return them to the beginning 
-  if (length < 8 || length > 128) {
-    window.alert("You must enter a valid number. Please try again!");
-    return generatePassword();
-  }
+//  // If user enters too low or high of a number, return them to the beginning 
+//   if (length < 8 || length > 128) {
+//     window.alert("You must enter a valid number. Please try again!");
+//     return generatePassword();
+//   }
+
+// // Confirm user number input 
+// var finalNum = length.value;   
 
  // Confirm options 
  var isLower = window.confirm("Would you like to include lowercase letters?");
@@ -50,68 +53,69 @@ if (length >= 8 && length <= 128) {
        console.log(setPassword);
       }
 
-    // // if user chooses uppercase, numbers, and special characters...
-    // if (isLower === false && isUpper === true && isNumeric === true && isSpecial === true) {
-    //   setPassword += randomUpper + randomNumeric + randomSpecial;
-    // } 
-    // // lowercase only
-    // else {
-    //   setPassword += randomLower;
-    // }
+    // if user chooses uppercase, numbers, and special characters...
+    if (isLower === false && isUpper === true && isNumeric === true && isSpecial === true) {
+      setPassword += randomUpper + randomNumeric + randomSpecial;
+    } 
+    // lowercase only
+    else {
+      setPassword += randomLower;
+      console.log(setPassword);
+    }
 
-    // // if user chooses numbers and special characters...
-    // if (isLower === false && isUpper === false && isNumeric === true && isSpecial === true) {
-    //   setPassword += randomNumeric + randomSpecial;
-    // }
-    // // lowercase and uppercase only 
-    // else {
-    //   setPassword += randomLower + randomUpper;
-    // }
+    // if user chooses numbers and special characters...
+    if (isLower === false && isUpper === false && isNumeric === true && isSpecial === true) {
+      setPassword += randomNumeric + randomSpecial;
+    }
+    // lowercase and uppercase only 
+    else {
+      setPassword += randomLower + randomUpper;
+    }
 
-    // // if user chooses only special characters 
-    // if (isLower === false && isUpper === false && isNumeric === false && isSpecial === true) {
-    // setPassword += randomSpecial;
-    // }
-    // // lowercase, uppercase, and numbers only 
-    // else {
-    //   setPassword += randomLower + randomUpper + randomNumeric;
-    // }
+    // if user chooses only special characters 
+    if (isLower === false && isUpper === false && isNumeric === false && isSpecial === true) {
+    setPassword += randomSpecial;
+    }
+    // lowercase, uppercase, and numbers only 
+    else {
+      setPassword += randomLower + randomUpper + randomNumeric;
+    }
 
-    // // uppercase only 
-    // if (isLower === false && isUpper === true && isNumeric === false && isSpecial === false) {
-    //   setPassword += randomUpper;
-    // }
-    // // lowercase, number, and special
-    // else {
-    //   setPassword += randomLower + randomNumeric + randomSpecial;
-    // }
+    // uppercase only 
+    if (isLower === false && isUpper === true && isNumeric === false && isSpecial === false) {
+      setPassword += randomUpper;
+    }
+    // lowercase, number, and special
+    else {
+      setPassword += randomLower + randomNumeric + randomSpecial;
+    }
 
-    // // number only 
-    // if (isLower === false && isUpper === false && isNumeric == true && isSpecial == false) {
-    //   setPassword += randomNumeric;
-    // }
-    // // lowercase, uppercase, and special
-    // else {
-    //   setPassword += randomLower + randomUpper + randomSpecial;
-    // }
+    // number only 
+    if (isLower === false && isUpper === false && isNumeric == true && isSpecial == false) {
+      setPassword += randomNumeric;
+    }
+    // lowercase, uppercase, and special
+    else {
+      setPassword += randomLower + randomUpper + randomSpecial;
+    }
 
-    // // uppercase and special 
-    // if (isLower === false && isUpper === true && isNumeric === false & isSpecial === true) {
-    //   setPassword += randomUpper + randomSpecial;
-    // }
-    // // lowercase and number 
-    // else {
-    //   setPassword += randomLower + randomNumeric;
-    // }
+    // uppercase and special 
+    if (isLower === false && isUpper === true && isNumeric === false & isSpecial === true) {
+      setPassword += randomUpper + randomSpecial;
+    }
+    // lowercase and number 
+    else {
+      setPassword += randomLower + randomNumeric;
+    }
 
-    // // uppercase and number 
-    // if (isLower === false && isUpper === true && isNumeric === true && isSpecial === false) {
-    //   setPassword += randomUpper + randomNumeric;
-    // }
-    // // lowercase and special
-    // else {
-    //   setPassword += randomLower + randomSpecial;
-    // }
+    // uppercase and number 
+    if (isLower === false && isUpper === true && isNumeric === true && isSpecial === false) {
+      setPassword += randomUpper + randomNumeric;
+    }
+    // lowercase and special
+    else {
+      setPassword += randomLower + randomSpecial;
+    }
   }
 };
 // END GENERATE PASSWORD FUNCTION 
@@ -126,7 +130,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  passwordText.textContent = password;
 }
 
 // Add event listener to generate button
