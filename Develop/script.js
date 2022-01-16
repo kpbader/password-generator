@@ -17,14 +17,11 @@ function generatePassword() {
   // Enter number of characters 
  var length = window.prompt("What is the length of your password? It must be between 8 and 128 characters.");
 
-//  // If user enters too low or high of a number, return them to the beginning 
-//   if (length < 8 || length > 128) {
-//     window.alert("You must enter a valid number. Please try again!");
-//     return generatePassword();
-//   }
-
-// // Confirm user number input 
-// var finalNum = length.value;   
+ // If user enters too low or high of a number, return them to the beginning 
+  // if (length < 8 || length > 128) {
+  //   window.alert("You must enter a valid number. Please try again!");
+  //   generatePassword();
+  // };
 
  // Confirm options 
  var isLower = window.confirm("Would you like to include lowercase letters?");
@@ -38,83 +35,96 @@ function generatePassword() {
   randomUpper += upper.charAt(Math.floor(Math.random() * upper.length));
   randomNumeric += numeric.charAt(Math.floor(Math.random() * numeric.length));
   randomSpecial += special.charAt(Math.floor(Math.random() * special.length));
- }
+ };
 
  // User chooses correct amount of characters
 if (length >= 8 && length <= 128) {
-    // if user chooses no options...
-    if (isLower === false && isUpper === false && isNumeric === false && isSpecial === false) {
-      return generatePassword();
-    }
-
     // if user chooses all options...
     if (isLower === true && isUpper === true && isNumeric === true && isSpecial === true) {
        setPassword += randomLower + randomUpper + randomNumeric + randomSpecial;
-       console.log(setPassword);
+       return setPassword;
       }
+    // // if user chooses no options 
+    // else {
+    //   window.alert("You must choose at least one option!");
+    //   generatePassword();
+    // }
 
     // if user chooses uppercase, numbers, and special characters...
     if (isLower === false && isUpper === true && isNumeric === true && isSpecial === true) {
       setPassword += randomUpper + randomNumeric + randomSpecial;
+      return setPassword;
     } 
     // lowercase only
-    else {
+    if (isLower === true && isUpper === false && isNumeric === false && isSpecial === false) {
       setPassword += randomLower;
-      console.log(setPassword);
+      return setPassword;
     }
 
     // if user chooses numbers and special characters...
     if (isLower === false && isUpper === false && isNumeric === true && isSpecial === true) {
       setPassword += randomNumeric + randomSpecial;
+      return setPassword;
     }
     // lowercase and uppercase only 
-    else {
+    if (isLower === true && isUpper === true && isNumeric === false && isSpecial === false) {
       setPassword += randomLower + randomUpper;
+      return setPassword;
     }
 
     // if user chooses only special characters 
     if (isLower === false && isUpper === false && isNumeric === false && isSpecial === true) {
     setPassword += randomSpecial;
+    return setPassword;
     }
     // lowercase, uppercase, and numbers only 
-    else {
+    if (isLower === true && isUpper === true && isNumeric === true && isSpecial === false) {
       setPassword += randomLower + randomUpper + randomNumeric;
+      return setPassword;
     }
 
     // uppercase only 
     if (isLower === false && isUpper === true && isNumeric === false && isSpecial === false) {
       setPassword += randomUpper;
+      return setPassword;
     }
     // lowercase, number, and special
-    else {
+    if (isLower === true && isUpper === false && isNumeric === true && isSpecial === true) {
       setPassword += randomLower + randomNumeric + randomSpecial;
+      return setPassword;
     }
 
     // number only 
     if (isLower === false && isUpper === false && isNumeric == true && isSpecial == false) {
       setPassword += randomNumeric;
+      return setPassword;
     }
     // lowercase, uppercase, and special
-    else {
+    if (isLower === true && isUpper === true && isNumeric === false && isSpecial === true) {
       setPassword += randomLower + randomUpper + randomSpecial;
+      return setPassword;
     }
 
     // uppercase and special 
     if (isLower === false && isUpper === true && isNumeric === false & isSpecial === true) {
       setPassword += randomUpper + randomSpecial;
+      return setPassword;
     }
     // lowercase and number 
-    else {
+    if (isLower === true && isUpper === false && isNumeric === true && isSpecial === false) {
       setPassword += randomLower + randomNumeric;
+      return setPassword;
     }
 
     // uppercase and number 
     if (isLower === false && isUpper === true && isNumeric === true && isSpecial === false) {
       setPassword += randomUpper + randomNumeric;
+      return setPassword;
     }
     // lowercase and special
-    else {
+    if (isLower === true && isUpper === false && isNumeric === false && isSpecial === true) {
       setPassword += randomLower + randomSpecial;
+      return setPassword;
     }
   }
 };
@@ -129,7 +139,6 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
   passwordText.textContent = password;
 }
 
